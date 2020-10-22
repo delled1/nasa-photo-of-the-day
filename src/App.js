@@ -1,23 +1,33 @@
 import React from "react";
 import "./App.css";
 import PhotoOfDay from "./Image"
-//import axios from 'axios'
+import styled from 'styled-components'
+
+const WrapperDiv = styled.div `
+  text-align: center;
+`;
+
+const H1 = styled.h1 `
+  background-color: blue;
+  color: white;
+
+`;
 
 function App() {
   return (
-    <div className="App">
+    <WrapperDiv>
       
        
-        <h1><span role="img" aria-label='go!'>🚀</span> ASTRONOMY PICTURE OF THE DAY <span role="img" aria-label='go!'>🚀</span></h1>
+        <H1><span role="img" aria-label='go!'>🚀</span> ASTRONOMY PICTURE OF THE DAY <span role="img" aria-label='go!'>🚀</span></H1>
         
-      
+      <br></br>
       <p>
       Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer.
       </p>
-        <br></br>
+    
         <PhotoOfDay />
       
-    </div>
+    </WrapperDiv>
   );
 }
 
