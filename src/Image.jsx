@@ -9,7 +9,7 @@ import Title from "./Title"
 import Credit from "./Credit"
 import { Button, ButtonGroup} from "reactstrap"
 import "./App.css";
-import ButtonStyle from "./Button"
+import ButtonComponent from "./Button"
 
 export default function PhotoOfDay () {
 
@@ -19,8 +19,7 @@ export default function PhotoOfDay () {
     useEffect(() => {
         axios.get('https://api.nasa.gov/planetary/apod?api_key=Kl3oRjboVtggv8OhQtX5kYJOMgXO41NnM08WQs1I&date=' + moment().subtract(`${num}`, 'days').format('YYYY-MM-DD'))
         .then((response) => {
-        console.log(response)
-        console.log(num)
+
         setPhotoData(response.data)
     })
         .catch((error) => {
@@ -31,13 +30,15 @@ export default function PhotoOfDay () {
 
     return (
         <div>
-            <ButtonGroup>
-            <ButtonStyle className="button" onClick={() => setNum(num+1)}>Previous Day</ButtonStyle>
+            {/* <ButtonGroup> */}
+            <ButtonComponent className="button" num={num} setNum={setNum} buttonText="Previous"/>
+            <ButtonComponent className="button" num={num} setNum={setNum} buttonText="Next"/>
+            <ButtonComponent className="button" num={num} setNum={setNum} buttonText="Today"/>
 
-            <ButtonStyle className="button" onClick={() => setNum(num-1)}>Next Day</ButtonStyle>
+            {/* <ButtonStyle className="button" onClick={() => setNum(num-1)}>Next Day</ButtonStyle>
 
             <ButtonStyle  className="button" onClick={() => setNum(0)}>Today</ButtonStyle>
-            </ButtonGroup>
+            </ButtonGroup> */}
             <br></br>
 
             <Date date={photoData.date}/>

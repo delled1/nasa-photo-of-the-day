@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import React, {useState} from 'react';
+import React from 'react';
 
 
 
@@ -12,10 +12,28 @@ const ButtonStyle = styled.button`
     width: 10rem;
     background-color: darkblue;
 
+
+
     
 
 `;
 
 
+function ButtonComponent ({setNum, num, buttonText}) {
 
-export default ButtonStyle
+    switch (buttonText){
+        case "Previous": return (
+            <ButtonStyle onClick={() => setNum(num+1)}>Previous Day</ButtonStyle>
+        )
+        case "Next" : return (
+            <ButtonStyle onClick={() => setNum(num-1)}>Next Day</ButtonStyle>
+        )
+        case "Today": return (
+            <ButtonStyle onClick={() => setNum(0)}>Today</ButtonStyle>
+        )
+
+    }
+    
+}
+
+export default ButtonComponent
